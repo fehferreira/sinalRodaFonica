@@ -1,5 +1,5 @@
-#line 1 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/sensor-rotacao-60-2/sinal_rotacao_60_2.c"
-#line 24 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/sensor-rotacao-60-2/sinal_rotacao_60_2.c"
+#line 1 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/sinal_rotacao_60_2.c"
+#line 24 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/sinal_rotacao_60_2.c"
 sbit LCD_RS at RD6_bit;
 sbit LCD_EN at RD7_bit;
 sbit LCD_D4 at RB0_bit;
@@ -13,8 +13,10 @@ sbit LCD_D4_Direction at TRISB0_bit;
 sbit LCD_D5_Direction at TRISB1_bit;
 sbit LCD_D6_Direction at TRISB2_bit;
 sbit LCD_D7_Direction at TRISB3_bit;
-#line 50 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/sensor-rotacao-60-2/sinal_rotacao_60_2.c"
-char contador_rotacao = 0x00;
+#line 50 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/sinal_rotacao_60_2.c"
+unsigned short contador_rotacao = 0x00,
+ dentes,
+ falhas;
 
 bit view,
  limpa_lcd;
@@ -161,13 +163,13 @@ void interrupt()
  {
  contador_rotacao ++;
 
- if(contador_rotacao < 116)  LATD5_bit  = ~ LATD5_bit ;
- if(contador_rotacao >= 116)
+ if(contador_rotacao < dentes)  LATD5_bit  = ~ LATD5_bit ;
+ if(contador_rotacao >= dentes)
  {
   LATD0_bit  = ~ LATD0_bit ;
   LATD5_bit  = 0x00;
  }
- if(contador_rotacao == 119)
+ if(contador_rotacao == (dentes+falhas))
  {
  contador_rotacao = 0x00;
   LATD0_bit  = 0x00;

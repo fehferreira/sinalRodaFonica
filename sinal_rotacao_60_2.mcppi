@@ -6,7 +6,7 @@ Value=0
 [BUILD_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=sinal_rotacao_60_2.c
+Value=interruptTMR1.c
 [USE_EEPROM]
 Value=0
 [USE_HEAP]
@@ -16,16 +16,27 @@ Value=2000
 [EEPROM_DEFINITION]
 Value=
 [FILES]
-File0=sinal_rotacao_60_2.c
-Count=1
+File0=main.c
+File1=controller.c
+File2=button.c
+File3=view.c
+File4=interruptTMR0.c
+File5=interruptTMR1.c
+Count=6
 [BINARIES]
 Count=0
 [IMAGES]
 Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
-File0=sinal_rotacao_60_2.c
-Count=1
+File0=main.c
+File1=header.h
+File2=controller.c
+File3=button.c
+File4=view.c
+File5=interruptTMR0.c
+File6=interruptTMR1.c
+Count=7
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
@@ -37,7 +48,8 @@ Count=0
 [HEADER_PATH]
 Count=0
 [HEADERS]
-Count=0
+File0=header.h
+Count=1
 [PLDS]
 Count=0
 [Useses]
@@ -56,4 +68,4 @@ Count=2
 0=mikroE Libraries
 1=System Libraries
 45=Conversions
-Count=3
+Count=4

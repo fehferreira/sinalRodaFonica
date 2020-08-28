@@ -1,5 +1,7 @@
 main
 	__CC2DW
+	configInterruptTMR0
+	configInterruptTMR1
 	Lcd_Init
 		Delay_5500us
 		Delay_1us
@@ -84,7 +86,12 @@ main
 					Delay_5500us
 					Delay_50us
 interrupt_low
-	testButton
-		Button
-			Delay_500us
+	interruptTMR0
+		testButtonVar
+			Button
+				Delay_500us
+		buttonFreq
+			Button
+				Delay_500us
 interrupt
+	interruptTMR1
