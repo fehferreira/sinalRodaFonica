@@ -62,8 +62,8 @@ void desligaSinais()
 void logicaMenuPrincipal()
 {
   //Definindo a quantidade de menu
-  max_menu = 2;
-  min_menu = 1;
+  max_menu = 1;
+  min_menu = 0;
   
   //Configurar TIMER1 para sinal de rotacao
   configInterruptTMR1();
@@ -78,9 +78,8 @@ void logicaMenuPrincipal()
   {
     switch(vetor_menu[pos_menu-1])
     {
-      /*case 1: logicaMenu1();break;
-      case 2: logicaMenu2();break;
-      case 3: logicaMenu3();break;*/
+      case 0: logicaDentes();
+      case 1: sinalHall();
     }
   }
   flagVoltar = 0x00;
@@ -88,29 +87,23 @@ void logicaMenuPrincipal()
 
 //----------------------------------------------------------------------------
 
-void logicaMenu1()
+void logicaDentes()
 {
   //Definindo a quantidade de menu
-  max_menu = 1;
+  max_menu = 150;
   min_menu = 1;
 
   while(flagVoltar != 1)
   {
     while(flagConfirma != 1)
     {
-      switch(var_menu)
-      {
-        /*case 1: sub_menu1_1();break;*/
-      }
+      escolhaDentes();
     }
     flagConfirma = 0;
     var_menu = controle_menu(var_menu);
     if(flagVoltar != 1)
     {
-      switch(vetor_menu[pos_menu-1])
-      {
-        /*case 1: logicaMenu1_1();break;*/
-      }
+      logicaEspacos();
     }
   }
   flagVoltar = 0;
@@ -118,29 +111,23 @@ void logicaMenu1()
 
 //----------------------------------------------------------------------------
 
-void logicaMenu2()
+void logicaEspacos()
 {
   //Definindo a quantidade de menu
-  max_menu = 2;
+  max_menu = 149;
   min_menu = 1;
 
   while(flagVoltar != 1)
   {
     while(flagConfirma != 1)
     {
-      switch(var_menu)
-      {
-        /*case 1: sub_menu2_1();break;
-        case 2: sub_menu2_2();break;*/
-      }
+      escolhaEspacos();
     }
     flagConfirma = 0;
     var_menu = controle_menu(var_menu);
     if(flagVoltar != 1)
     {
-      //switch(vetor_menu[pos_menu])
-      //{
-      //}
+      sinalIndutivo();
     }
   }
   flagVoltar = 0;
@@ -148,73 +135,30 @@ void logicaMenu2()
 
 //----------------------------------------------------------------------------
 
-void logicaMenu3()
+void sinalIndutivo();
 {
   //Definindo a quantidade de menu
-  max_menu = 2;
-  min_menu = 1;
+  max_menu = 0;
+  min_menu = 0;
 
   while(flagVoltar != 1)
   {
     while(flagConfirma != 1)
     {
-      switch(var_menu)
-      {
-        /*case 1: sub_menu3_1();break;
-        case 2: sub_menu3_2();break;*/
-      }
+      mostrarSinalIndutivo();
     }
     flagConfirma = 0;
     var_menu = controle_menu(var_menu);
     if(flagVoltar != 1)
     {
-      //switch(vetor_menu[pos_menu])
-      //{
-      //}
+      logicaEdicaoIndutivo();
+    }else
+    {
+      goto inicio;
     }
   }
   flagVoltar = 0;
 }
 
 //----------------------------------------------------------------------------
-// --- DECLARA�AO DAS FUN�OES LOGICAS DOS SUBMENUS ----
 
-void logicaMenu1_1()
-{
-  //Definindo a quantidade de menu
-  max_menu = 2;
-  min_menu = 1;
-
-  //Definindo as configs de Rotacao
-  configInterruptTMR1();
-
-  //Ligando os TIMERS para os sinais
-  TMR1ON_bit = 0x01;
-  TMR3ON_bit = 0x01;
-
-  while(flagVoltar != 1)
-  {
-    while(flagConfirma != 1)
-    {
-      switch(var_menu)
-      {
-        /*case 1: sinal_rotacao(counter_rotacao);break;
-        case 2: sinal_velocidade(counter_velocidade);break;*/
-      }
-    }
-    flagConfirma = 0;
-    var_menu = controle_menu(var_menu);
-    if(flagVoltar != 1)
-    {
-      switch(vetor_menu[pos_menu-1])
-      {
-        /*case 1: logicaEditarRotacao();break;
-        case 2: logicaEditarVelocidade();break;*/
-      }
-    }
-  }
-  flagVoltar = 0;
-  desligaSinais();
-}
-
-//----------------------------------------------------------------------------

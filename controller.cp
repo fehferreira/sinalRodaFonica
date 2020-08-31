@@ -19,7 +19,6 @@ void logicaMenuPrincipal();
 
 
 void buttonFreq();
-void testButtonVar();
 void buttonMenu();
 
 
@@ -108,8 +107,8 @@ void desligaSinais()
 void logicaMenuPrincipal()
 {
 
- max_menu = 2;
- min_menu = 1;
+ max_menu = 1;
+ min_menu = 0;
 
 
  configInterruptTMR1();
@@ -124,7 +123,8 @@ void logicaMenuPrincipal()
  {
  switch(vetor_menu[pos_menu-1])
  {
-#line 84 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/controller.c"
+ case 0: logicaDentes();
+ case 1: sinalHall();
  }
  }
  flagVoltar = 0x00;
@@ -132,29 +132,23 @@ void logicaMenuPrincipal()
 
 
 
-void logicaMenu1()
+void logicaDentes()
 {
 
- max_menu = 1;
+ max_menu = 150;
  min_menu = 1;
 
  while(flagVoltar != 1)
  {
  while(flagConfirma != 1)
  {
- switch(var_menu)
- {
-
- }
+ escolhaDentes();
  }
  flagConfirma = 0;
  var_menu = controle_menu(var_menu);
  if(flagVoltar != 1)
  {
- switch(vetor_menu[pos_menu-1])
- {
-
- }
+ logicaEspacos();
  }
  }
  flagVoltar = 0;
@@ -162,28 +156,23 @@ void logicaMenu1()
 
 
 
-void logicaMenu2()
+void logicaEspacos()
 {
 
- max_menu = 2;
+ max_menu = 149;
  min_menu = 1;
 
  while(flagVoltar != 1)
  {
  while(flagConfirma != 1)
  {
- switch(var_menu)
- {
-#line 135 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/controller.c"
- }
+ escolhaEspacos();
  }
  flagConfirma = 0;
  var_menu = controle_menu(var_menu);
  if(flagVoltar != 1)
  {
-
-
-
+ sinalIndutivo();
  }
  }
  flagVoltar = 0;
@@ -191,68 +180,27 @@ void logicaMenu2()
 
 
 
-void logicaMenu3()
+void sinalIndutivo();
 {
 
- max_menu = 2;
- min_menu = 1;
+ max_menu = 0;
+ min_menu = 0;
 
  while(flagVoltar != 1)
  {
  while(flagConfirma != 1)
  {
- switch(var_menu)
- {
-#line 165 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/controller.c"
- }
+ mostrarSinalIndutivo();
  }
  flagConfirma = 0;
  var_menu = controle_menu(var_menu);
  if(flagVoltar != 1)
  {
-
-
-
+ logicaEdicaoIndutivo();
+ }else
+ {
+ goto inicio;
  }
  }
  flagVoltar = 0;
-}
-
-
-
-
-void logicaMenu1_1()
-{
-
- max_menu = 2;
- min_menu = 1;
-
-
- configInterruptTMR1();
-
-
- TMR1ON_bit = 0x01;
- TMR3ON_bit = 0x01;
-
- while(flagVoltar != 1)
- {
- while(flagConfirma != 1)
- {
- switch(var_menu)
- {
-#line 203 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/controller.c"
- }
- }
- flagConfirma = 0;
- var_menu = controle_menu(var_menu);
- if(flagVoltar != 1)
- {
- switch(vetor_menu[pos_menu-1])
- {
-#line 213 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/controller.c"
- }
- }
- }
- flagVoltar = 0;
- desligaSinais();
 }

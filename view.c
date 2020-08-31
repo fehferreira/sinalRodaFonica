@@ -26,6 +26,11 @@ void testButtonVar();
 void inicioLcd();
 
 //-----------------------------------------------------------------------------
+// --- INCLUINDO VETORES DE EXIBICAO DE ESCOLHAS ---
+
+char escolhaSinal[2] [17] = {"Sinal Indutivo","Sinal Hall"};
+
+//-----------------------------------------------------------------------------
 // --- DESENVOLVIMENTO DAS FUNÇÕES
 
 void inicioLcd()
@@ -46,6 +51,7 @@ void inicioLcd()
 
 void tipoSinal()
 {
+
   Lcd_Chr(1,1,'T');
   Lcd_Chr_Cp('i');
   Lcd_Chr_Cp('p');
@@ -61,7 +67,7 @@ void tipoSinal()
   Lcd_Chr_Cp('l');
   Lcd_Chr_Cp(':');
   
-  Lcd_Out(2,1,escolhaSinal);
+  Lcd_Out(2,1,escolhaSinal[var_menu]);
 
 }
 

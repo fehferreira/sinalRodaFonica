@@ -19,36 +19,12 @@ unsigned int contT;
 // --- INCLUINDO PROTÓTIPOS DAS FUNÇÕES
 
 void buttonFreq();
-void testButtonVar();
+void buttonMenu();
 
 //-----------------------------------------------------------------------------
 // --- DESENVOLVENDO FUNÇÕES
 
 void buttonFreq()
-{
-  if(button1)
-  {
-    if(contT == 65535 || contT >= 65525)  contT = 65535;
-    else              contT += 10;
-    limpa_lcd = 1;
-  }
-
-  if(button2)
-  {
-    if(contT == 60000 || contT <= 60010)  contT = 60000;
-    else            contT -= 10;
-    limpa_lcd = 1;
-  }
-
-  if(button3)
-  {
-    limpa_lcd = 1;
-  }
-}
-
-//-----------------------------------------------------------------------------
-
-void testButtonVar()
 {
   if(button1)
   {
@@ -119,6 +95,3 @@ void buttonMenu()
 }
 
 //-----------------------------------------------------------------------------
-
-
-

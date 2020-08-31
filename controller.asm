@@ -71,12 +71,11 @@ L_end_desligaSinais:
 _logicaMenuPrincipal:
 
 ;controller.c,62 :: 		void logicaMenuPrincipal()
-;controller.c,65 :: 		max_menu = 2;
-	MOVLW       2
-	MOVWF       _max_menu+0 
-;controller.c,66 :: 		min_menu = 1;
+;controller.c,65 :: 		max_menu = 1;
 	MOVLW       1
-	MOVWF       _min_menu+0 
+	MOVWF       _max_menu+0 
+;controller.c,66 :: 		min_menu = 0;
+	CLRF        _min_menu+0 
 ;controller.c,69 :: 		configInterruptTMR1();
 	CALL        _configInterruptTMR1+0, 0
 ;controller.c,71 :: 		while(flagConfirma != 1)

@@ -19,7 +19,6 @@ void logicaMenuPrincipal();
 
 
 void buttonFreq();
-void testButtonVar();
 void buttonMenu();
 
 
@@ -65,36 +64,12 @@ unsigned int contT;
 
 
 void buttonFreq();
-void testButtonVar();
+void buttonMenu();
 
 
 
 
 void buttonFreq()
-{
- if( Button(&PORTB, 7, 150, 1) )
- {
- if(contT == 65535 || contT >= 65525) contT = 65535;
- else contT += 10;
- limpa_lcd = 1;
- }
-
- if( Button(&PORTB, 6, 150, 1) )
- {
- if(contT == 60000 || contT <= 60010) contT = 60000;
- else contT -= 10;
- limpa_lcd = 1;
- }
-
- if( Button(&PORTB, 5, 150, 1) )
- {
- limpa_lcd = 1;
- }
-}
-
-
-
-void testButtonVar()
 {
  if( Button(&PORTB, 7, 150, 1) )
  {

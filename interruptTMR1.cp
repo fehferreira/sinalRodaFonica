@@ -19,7 +19,6 @@ void logicaMenuPrincipal();
 
 
 void buttonFreq();
-void testButtonVar();
 void buttonMenu();
 
 

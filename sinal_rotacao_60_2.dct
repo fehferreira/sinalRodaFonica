@@ -473,6 +473,7 @@ epstall_uep7_bit
 epstall_uep8_bit
 epstall_uep9_bit
 equals_double
+escolhasinal
 f
 falhas
 fast
@@ -1366,7 +1367,7 @@ tblptr
 tblptrh
 tblptrl
 tblptru
-testbuttonvar
+tiposinal
 tmr0h
 tmr0ie
 tmr0ie_bit

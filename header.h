@@ -55,7 +55,6 @@ void logicaMenuPrincipal();
 
 // --- CONTROLE DOS BOTOES ---
 void buttonFreq();
-void testButtonVar();
 void buttonMenu();
 
 // --- ARQUIVO DE CONTROLE DE FUNCOES DE EXIBICAO (LCD) ---

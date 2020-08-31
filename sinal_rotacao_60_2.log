@@ -3,14 +3,26 @@ hint: 0	1139	Available RAM: 2027 [bytes], Available ROM: 32768 [bytes]
 diagnostics: 0	122	Compilation Started	header.h
 diagnostics: 78	123	Compiled Successfully	main.c
 diagnostics: 0	122	Compilation Started	header.h
-diagnostics: 218	123	Compiled Successfully	controller.c
+error: 81	324	Undeclared identifier 'logicaDentes' in expression	controller.c
+error: 82	324	Undeclared identifier 'sinalHall' in expression	controller.c
+error: 100	324	Undeclared identifier 'escolhaDentes' in expression	controller.c
+error: 106	324	Undeclared identifier 'logicaEspacos' in expression	controller.c
+error: 124	324	Undeclared identifier 'escolhaEspacos' in expression	controller.c
+error: 130	324	Undeclared identifier 'sinalIndutivo' in expression	controller.c
+error: 139	371	Specifier needed	controller.c
+error: 139	396	Invalid declarator expected'(' or identifier	controller.c
+error: 142	402	; expected, but '=' found	controller.c
+error: 142	393	'min_menu' Identifier redefined	controller.c
+error: 142	371	Specifier needed	controller.c
+error: 142	396	Invalid declarator expected'(' or identifier	controller.c
+error: 142	393	'' Identifier redefined	controller.c
+error: 142	312	Internal error ''	controller.c
 diagnostics: 0	122	Compilation Started	header.h
-diagnostics: 119	123	Compiled Successfully	button.c
+diagnostics: 95	123	Compiled Successfully	button.c
 diagnostics: 0	122	Compilation Started	header.h
-error: 64	324	Undeclared identifier 'escolhaSinal' in expression	view.c
-warning: 64	1508	Implicit conversion of int to ptr	view.c
+diagnostics: 126	123	Compiled Successfully	view.c
 diagnostics: 0	122	Compilation Started	header.h
 diagnostics: 50	123	Compiled Successfully	interruptTMR0.c
 diagnostics: 0	122	Compilation Started	header.h
 diagnostics: 63	123	Compiled Successfully	interruptTMR1.c
-error: 0	102	Finished (with errors): 31 ago 2020, 15:55:19	sinal_rotacao_60_2.mcppi
+error: 0	102	Finished (with errors): 31 ago 2020, 18:35:53	sinal_rotacao_60_2.mcppi
