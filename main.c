@@ -33,7 +33,7 @@ void main()
   TRISB = 0xF0;                            //Configura PORTB com i/o's
   TRISC = 0xFF;                            //Configura PORTC com i/o's
   
-  view = 1;
+  flaginicio = 1;
   contT = 60000;
   
   // --- CONFIGURAÇÃO DE ADC ---
@@ -44,7 +44,6 @@ void main()
   // --- CONFIGURACAO DAS INTERRUPCOES ---
   
   configInterruptTMR0();                   //Chamando funçao de config do TMR0
-  configInterruptTMR1();                   //Chamando funcao de config do TMR1
 
   // --- CONFIGURACAO LCD ---
   
@@ -55,10 +54,9 @@ void main()
   while(1)
    {
      if(limpa_lcd) limpaLCD();
-   
-     if(view) valorCaptura();                     //Funcao de impressao da rotaçao
-     else     valores();
-      
+     if(flaginicio) inicioLcd();
+     else           logicaMenuPrincipal();
+     
       
    }//FINAL LOOP
 

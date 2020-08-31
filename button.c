@@ -42,7 +42,6 @@ void buttonFreq()
 
   if(button3)
   {
-    view = ~view;
     limpa_lcd = 1;
   }
 }
@@ -67,9 +66,59 @@ void testButtonVar()
 
   if(button3)
   {
-    view = ~view;
     limpa_lcd = 1;
   }
 }
 
 //-----------------------------------------------------------------------------
+
+void buttonMenu()
+{
+  if(button1)                     //Botao solto?
+  {
+    if(flaginicio == 0)
+    {
+      flagVoltar = 1;
+      flagConfirma = 1;
+      limpa_lcd = 0x01;
+    }
+  }
+
+  if(button2)
+  {
+    if(flaginicio == 0)
+    {
+      if(var_menu <= max_menu && var_menu > min_menu) var_menu --;
+      else                             var_menu = min_menu;
+      limpa_lcd = 0x01;
+    }
+  }
+
+  if(button3)
+  {
+    if(flaginicio == 0)
+    {
+      if(var_menu < max_menu && var_menu >= 0) var_menu ++;
+      else                             var_menu = max_menu;
+      limpa_lcd = 0x01;
+    }
+  }
+
+  if(button4)
+  {
+    if(flaginicio == 1)
+    {
+      flaginicio = 0;
+      limpa_lcd = 1;
+    }else
+    {
+      flagConfirma = 1;
+      limpa_lcd = 0x01;
+    }
+  }
+}
+
+//-----------------------------------------------------------------------------
+
+
+

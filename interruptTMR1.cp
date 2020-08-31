@@ -14,11 +14,17 @@ sbit LCD_D4_Direction at TRISB0_bit;
 sbit LCD_D5_Direction at TRISB1_bit;
 sbit LCD_D6_Direction at TRISB2_bit;
 sbit LCD_D7_Direction at TRISB3_bit;
-#line 53 "c:/users/felipe - oficina/documents/programação/pic/signal-rotation-induction/header.h"
+#line 54 "c:/users/felipe - oficina/documents/programação/pic/signal-rotation-induction/header.h"
+void logicaMenuPrincipal();
+
+
 void buttonFreq();
 void testButtonVar();
+void buttonMenu();
 
 
+void inicioLcd();
+void tipoSinal();
 void valorCaptura();
 void valores();
 void limpaLCD();
@@ -36,9 +42,15 @@ void configInterruptTMR1();
 
 extern unsigned short contador_rotacao,
  dentes,
+ var_menu,
+ pos_menu,
+ max_menu,
+ min_menu,
  falhas;
 
-extern bit view,
+extern bit flaginicio,
+ flagConfirma,
+ flagVoltar,
  limpa_lcd;
 
 extern unsigned int contT,

@@ -17,8 +17,8 @@ _main:
 ;main.c,34 :: 		TRISC = 0xFF;                            //Configura PORTC com i/o's
 	MOVLW       255
 	MOVWF       TRISC+0 
-;main.c,36 :: 		view = 1;
-	BSF         _view+0, BitPos(_view+0) 
+;main.c,36 :: 		flaginicio = 1;
+	BSF         _flaginicio+0, BitPos(_flaginicio+0) 
 ;main.c,37 :: 		contT = 60000;
 	MOVLW       96
 	MOVWF       _contT+0 
@@ -31,43 +31,41 @@ _main:
 	MOVWF       ADCON1+0 
 ;main.c,46 :: 		configInterruptTMR0();                   //Chamando funçao de config do TMR0
 	CALL        _configInterruptTMR0+0, 0
-;main.c,47 :: 		configInterruptTMR1();                   //Chamando funcao de config do TMR1
-	CALL        _configInterruptTMR1+0, 0
-;main.c,51 :: 		Lcd_Init();                              //Inicializa LCD
+;main.c,50 :: 		Lcd_Init();                              //Inicializa LCD
 	CALL        _Lcd_Init+0, 0
-;main.c,52 :: 		Lcd_Cmd(_LCD_CURSOR_OFF);                //Desliga o cursor do LCD
+;main.c,51 :: 		Lcd_Cmd(_LCD_CURSOR_OFF);                //Desliga o cursor do LCD
 	MOVLW       12
 	MOVWF       FARG_Lcd_Cmd_out_char+0 
 	CALL        _Lcd_Cmd+0, 0
-;main.c,55 :: 		while(1)
+;main.c,54 :: 		while(1)
 L_main0:
-;main.c,57 :: 		if(limpa_lcd) limpaLCD();
+;main.c,56 :: 		if(limpa_lcd) limpaLCD();
 	BTFSS       _limpa_lcd+0, BitPos(_limpa_lcd+0) 
 	GOTO        L_main2
 	CALL        _limpaLCD+0, 0
 L_main2:
-;main.c,59 :: 		if(view) valorCaptura();                     //Funcao de impressao da rotaçao
-	BTFSS       _view+0, BitPos(_view+0) 
+;main.c,57 :: 		if(flaginicio) inicioLcd();
+	BTFSS       _flaginicio+0, BitPos(_flaginicio+0) 
 	GOTO        L_main3
-	CALL        _valorCaptura+0, 0
+	CALL        _inicioLcd+0, 0
 	GOTO        L_main4
 L_main3:
-;main.c,60 :: 		else     valores();
-	CALL        _valores+0, 0
+;main.c,58 :: 		else           logicaMenuPrincipal();
+	CALL        _logicaMenuPrincipal+0, 0
 L_main4:
-;main.c,63 :: 		}//FINAL LOOP
+;main.c,61 :: 		}//FINAL LOOP
 	GOTO        L_main0
-;main.c,65 :: 		}//FINAL MAIN
+;main.c,63 :: 		}//FINAL MAIN
 L_end_main:
 	GOTO        $+0
 ; end of _main
 
 _interrupt:
 
-;main.c,70 :: 		void interrupt()
-;main.c,72 :: 		interruptTMR1();
+;main.c,68 :: 		void interrupt()
+;main.c,70 :: 		interruptTMR1();
 	CALL        _interruptTMR1+0, 0
-;main.c,73 :: 		}
+;main.c,71 :: 		}
 L_end_interrupt:
 L__interrupt7:
 	RETFIE      1
@@ -80,10 +78,10 @@ _interrupt_low:
 	MOVF        BSR+0, 0 
 	MOVWF       ___Low_saveBSR+0 
 
-;main.c,77 :: 		void interrupt_low()
-;main.c,79 :: 		interruptTMR0();
+;main.c,75 :: 		void interrupt_low()
+;main.c,77 :: 		interruptTMR0();
 	CALL        _interruptTMR0+0, 0
-;main.c,80 :: 		}
+;main.c,78 :: 		}
 L_end_interrupt_low:
 L__interrupt_low9:
 	MOVF        ___Low_saveBSR+0, 0 

@@ -44,16 +44,23 @@ sbit LCD_D7_Direction at TRISB3_bit;
 #define button1 Button(&PORTB, 7, 150, 1)
 #define button2 Button(&PORTB, 6, 150, 1)
 #define button3 Button(&PORTB, 5, 150, 1)
+#define button4 Button(&PORTB, 4, 150, 1)
 
 //-----------------------------------------------------------------------------
 // --- CRIANDO PROTÓTIPOS DAS FUNÇOES
 
+// --- LÓGICA DOS MENUS E CONTROLE DE EXIBICAO ---
+
+void logicaMenuPrincipal();
 
 // --- CONTROLE DOS BOTOES ---
 void buttonFreq();
 void testButtonVar();
+void buttonMenu();
 
 // --- ARQUIVO DE CONTROLE DE FUNCOES DE EXIBICAO (LCD) ---
+void inicioLcd();
+void tipoSinal();
 void valorCaptura();
 void valores();
 void limpaLCD();
@@ -71,10 +78,16 @@ void configInterruptTMR1();
 
 extern unsigned short contador_rotacao,
                       dentes,
+                      var_menu,
+                      pos_menu,
+                      max_menu,
+                      min_menu,
                       falhas;
 
-extern bit view,
-       limpa_lcd;
+extern bit flaginicio,
+           flagConfirma,
+           flagVoltar,
+           limpa_lcd;
 
 extern unsigned int contT,
                     valor_captura;

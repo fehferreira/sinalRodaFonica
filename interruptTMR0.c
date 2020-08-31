@@ -27,8 +27,7 @@ void interruptTMR0()
     TMR0H = 0xB1;                          //Reinicialização do contador TMR0H
     TMR0L = 0xE0;                          //Reinicialização do contador TMR0L
 
-    if(TMR1ON_bit == 0) testButtonVar();
-    else                buttonFreq();
+    buttonMenu();
   }
 }
 

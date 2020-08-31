@@ -14,11 +14,17 @@ sbit LCD_D4_Direction at TRISB0_bit;
 sbit LCD_D5_Direction at TRISB1_bit;
 sbit LCD_D6_Direction at TRISB2_bit;
 sbit LCD_D7_Direction at TRISB3_bit;
-#line 53 "c:/users/felipe - oficina/documents/programação/pic/signal-rotation-induction/header.h"
+#line 54 "c:/users/felipe - oficina/documents/programação/pic/signal-rotation-induction/header.h"
+void logicaMenuPrincipal();
+
+
 void buttonFreq();
 void testButtonVar();
+void buttonMenu();
 
 
+void inicioLcd();
+void tipoSinal();
 void valorCaptura();
 void valores();
 void limpaLCD();
@@ -36,9 +42,15 @@ void configInterruptTMR1();
 
 extern unsigned short contador_rotacao,
  dentes,
+ var_menu,
+ pos_menu,
+ max_menu,
+ min_menu,
  falhas;
 
-extern bit view,
+extern bit flaginicio,
+ flagConfirma,
+ flagVoltar,
  limpa_lcd;
 
 extern unsigned int contT,
@@ -76,7 +88,6 @@ void buttonFreq()
 
  if( Button(&PORTB, 5, 150, 1) )
  {
- view = ~view;
  limpa_lcd = 1;
  }
 }
@@ -101,7 +112,54 @@ void testButtonVar()
 
  if( Button(&PORTB, 5, 150, 1) )
  {
- view = ~view;
  limpa_lcd = 1;
+ }
+}
+
+
+
+void buttonMenu()
+{
+ if( Button(&PORTB, 7, 150, 1) )
+ {
+ if(flaginicio == 0)
+ {
+ flagVoltar = 1;
+ flagConfirma = 1;
+ limpa_lcd = 0x01;
+ }
+ }
+
+ if( Button(&PORTB, 6, 150, 1) )
+ {
+ if(flaginicio == 0)
+ {
+ if(var_menu <= max_menu && var_menu > min_menu) var_menu --;
+ else var_menu = min_menu;
+ limpa_lcd = 0x01;
+ }
+ }
+
+ if( Button(&PORTB, 5, 150, 1) )
+ {
+ if(flaginicio == 0)
+ {
+ if(var_menu < max_menu && var_menu >= 0) var_menu ++;
+ else var_menu = max_menu;
+ limpa_lcd = 0x01;
+ }
+ }
+
+ if( Button(&PORTB, 4, 150, 1) )
+ {
+ if(flaginicio == 1)
+ {
+ flaginicio = 0;
+ limpa_lcd = 1;
+ }else
+ {
+ flagConfirma = 1;
+ limpa_lcd = 0x01;
+ }
  }
 }

@@ -14,11 +14,17 @@ sbit LCD_D4_Direction at TRISB0_bit;
 sbit LCD_D5_Direction at TRISB1_bit;
 sbit LCD_D6_Direction at TRISB2_bit;
 sbit LCD_D7_Direction at TRISB3_bit;
-#line 53 "c:/users/felipe - oficina/documents/programação/pic/signal-rotation-induction/header.h"
+#line 54 "c:/users/felipe - oficina/documents/programação/pic/signal-rotation-induction/header.h"
+void logicaMenuPrincipal();
+
+
 void buttonFreq();
 void testButtonVar();
+void buttonMenu();
 
 
+void inicioLcd();
+void tipoSinal();
 void valorCaptura();
 void valores();
 void limpaLCD();
@@ -36,9 +42,15 @@ void configInterruptTMR1();
 
 extern unsigned short contador_rotacao,
  dentes,
+ var_menu,
+ pos_menu,
+ max_menu,
+ min_menu,
  falhas;
 
-extern bit view,
+extern bit flaginicio,
+ flagConfirma,
+ flagVoltar,
  limpa_lcd;
 
 extern unsigned int contT,
@@ -47,8 +59,7 @@ extern unsigned int contT,
 extern char txt[15],
  txt2[15];
 #line 16 "C:/Users/Felipe - Oficina/Documents/Programação/PIC/signal-rotation-induction/view.c"
-bit view,
- limpa_lcd;
+bit limpa_lcd;
 
 char txt[15],
  txt2[15];
@@ -58,7 +69,47 @@ char txt[15],
 
 void buttonFreq();
 void testButtonVar();
+void inicioLcd();
 
+
+
+
+void inicioLcd()
+{
+ Lcd_Chr(1,1,'V');
+ Lcd_Chr_Cp('a');
+ Lcd_Chr_Cp('r');
+ Lcd_Chr_Cp(' ');
+ Lcd_Chr_Cp('C');
+ Lcd_Chr_Cp('a');
+ Lcd_Chr_Cp('p');
+ Lcd_Chr_Cp(' ');
+ Lcd_Chr_Cp(':');
+
+}
+
+
+
+void tipoSinal()
+{
+ Lcd_Chr(1,1,'T');
+ Lcd_Chr_Cp('i');
+ Lcd_Chr_Cp('p');
+ Lcd_Chr_Cp('o');
+ Lcd_Chr_Cp(' ');
+ Lcd_Chr_Cp('d');
+ Lcd_Chr_Cp('e');
+ Lcd_Chr_Cp(' ');
+ Lcd_Chr_Cp('s');
+ Lcd_Chr_Cp('i');
+ Lcd_Chr_Cp('n');
+ Lcd_Chr_Cp('a');
+ Lcd_Chr_Cp('l');
+ Lcd_Chr_Cp(':');
+
+ Lcd_Out(2,1,escolhaSinal);
+
+}
 
 
 

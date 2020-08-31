@@ -162,6 +162,7 @@ btsef
 btsef_bit
 button
 buttonfreq
+buttonmenu
 byte2double
 bytetohex
 bytetostr
@@ -262,7 +263,9 @@ compare_double
 configinterrupttmr0
 configinterrupttmr1
 contador_rotacao
+controle_menu
 contt
+counter_rotacao
 crc16ee
 crc16ee_bit
 crc16ef
@@ -331,6 +334,7 @@ delay_80us
 delay_8ms
 delay_cyc
 dentes
+desligasinais
 dfn8ee
 dfn8ee_bit
 dfn8ef
@@ -475,6 +479,9 @@ fast
 ferr
 ferr_bit
 fixsign32
+flagconfirma
+flaginicio
+flagvoltar
 floattostr
 floattostr_fixlen
 flts
@@ -566,6 +573,7 @@ idlen_bit
 indf0
 indf1
 indf2
+iniciolcd
 int0
 int0_bit
 int0e
@@ -786,6 +794,11 @@ lcd_rs_direction
 lcd_rs_direction
 limpa_lcd
 limpalcd
+logicamenu1
+logicamenu1_1
+logicamenu2
+logicamenu3
+logicamenuprincipal
 longint2double
 longinttohex
 longinttostrwithzeros
@@ -824,11 +837,13 @@ lvv2_bit
 lvv3
 lvv3_bit
 main
+max_menu
 memchr
 memcmp
 memcpy
 memmove
 memset
+min_menu
 mul_16x16_s
 mul_16x16_u
 mul_32x32_fp
@@ -964,6 +979,7 @@ portb
 portc
 portd
 porte
+pos_menu
 postdec0
 postdec1
 postdec2
@@ -1565,6 +1581,7 @@ utrdis_bit
 valor_captura
 valorcaptura
 valores
+var_menu
 vcfg0
 vcfg0_bit
 vcfg1
@@ -1573,7 +1590,7 @@ vdelay_advanced_ms
 vdelay_ms
 vdirmag
 vdirmag_bit
-view
+vetor_menu
 vref_mask
 vrefm
 vrefm_bit
